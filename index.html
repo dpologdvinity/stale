@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f5f1" />
+    <meta name="description" content="A clear-eyed cleanup report for the things your repository forgot." />
+    <title>stale — repository hygiene</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="rail" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="stale home"><span class="brand-mark">s.</span></a>
+        <nav class="rail-nav">
+          <a class="rail-link active" href="#findings" aria-label="Findings" title="Findings"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h10M4 19h16" /></svg></a>
+          <a class="rail-link" href="#report" id="rail-report" aria-label="Reports" title="Reports"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h7" /></svg></a>
+          <a class="rail-link" href="#settings" aria-label="Settings" title="Settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4L17 17.4a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2.9Z"/></svg></a>
+        </nav>
+        <button class="avatar" aria-label="Account: Kai">K</button>
+      </aside>
+
+      <main id="top">
+        <header class="topbar">
+          <div class="crumb"><span class="crumb-org">northstar</span><span class="slash">/</span><span>engineering</span><span class="chevron">⌄</span></div>
+          <div class="top-right"><span class="sync-dot"></span><span>Synced 4 minutes ago</span><button class="icon-button" aria-label="Notifications"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" /></svg></button></div>
+        </header>
+
+        <div class="content">
+          <section class="page-heading">
+            <div><div class="eyebrow"><span class="eyebrow-mark"></span> REPOSITORY HYGIENE <span class="eyebrow-sep">/</span> LAST SCAN OCT 23, 2026</div><h1>Good code deserves<br /><span>a clean house.</span></h1><p class="subhead">A little dust builds up. Here’s what your repo has been holding onto.</p></div>
+            <button class="scan-button" id="scan"><svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M5.5 9a7 7 0 0 1 11.6-2.1L20 12M4 12l2.9 5.1A7 7 0 0 0 18.5 15" /></svg><span>Run scan</span></button>
+          </section>
+
+          <section class="repo-strip" aria-label="Repository details">
+            <div class="repo-ident"><span class="repo-icon">⌘</span><span><strong>northstar / checkout</strong><small>Default branch <b>main</b></small></span><span class="repo-private">PRIVATE</span></div>
+            <div class="repo-meta"><span><i class="tiny-dot"></i> Connected to GitHub</span><span>Last push <b>2h ago</b></span><button id="repo-menu" aria-label="Repository options">···</button></div>
+          </section>
+
+          <section class="overview" aria-label="Scan summary">
+            <div class="overview-top"><div><h2>Quietly collecting dust</h2><p>We found a few things worth a second look.</p></div><span class="scan-id">SCAN #048 <span>·</span> 9:41 AM</span></div>
+            <div class="score-row"><div class="score"><span class="score-number" id="finding-count">18</span><span class="score-caption">things to<br />take a look at</span></div><div class="score-divider"></div>
+              <div class="metric"><span class="metric-value">6</span><span class="metric-label">stale branches</span><span class="metric-note">oldest is 214 days</span></div>
+              <div class="metric"><span class="metric-value">3</span><span class="metric-label">worktrees</span><span class="metric-note">2 appear abandoned</span></div>
+              <div class="metric"><span class="metric-value">2</span><span class="metric-label">stashes</span><span class="metric-note">from last summer</span></div>
+              <div class="metric"><span class="metric-value">5</span><span class="metric-label">old TODOs</span><span class="metric-note">over one year old</span></div>
+              <div class="metric"><span class="metric-value">2</span><span class="metric-label">orphaned flags</span><span class="metric-note">likely safe to remove</span></div>
+            </div>
+            <div class="overview-foot"><span><span class="foot-spark">✳</span> Nothing is deleted without your say-so.</span><button id="open-report">Open cleanup report <span class="button-arrow">↗</span></button></div>
+          </section>
+
+          <section class="findings-section" id="findings">
+            <div class="findings-heading"><div><h2>Findings <span class="count-pill" id="visible-count">18</span></h2><p>Small things, before they become archaeology.</p></div><label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg><input id="search" type="search" placeholder="Find something..." aria-label="Search findings" /><kbd>⌘ K</kbd></label></div>
+            <div class="filters" role="group" aria-label="Filter findings"><button class="filter active" data-filter="all">Everything <span>18</span></button><button class="filter" data-filter="branch">Branches <span>6</span></button><button class="filter" data-filter="worktree">Worktrees <span>3</span></button><button class="filter" data-filter="stash">Stashes <span>2</span></button><button class="filter" data-filter="todo">TODOs <span>5</span></button><button class="filter" data-filter="flag">Feature flags <span>2</span></button><button class="sort-button" id="sort">Oldest first <span>⌄</span></button></div>
+            <div class="table-wrap"><table><thead><tr><th class="check-col"><input type="checkbox" id="select-all" aria-label="Select all visible findings" /></th><th>THING</th><th>LAST TOUCHED</th><th>AGE</th><th>OWNER</th><th>STATUS</th><th></th></tr></thead><tbody id="finding-rows"></tbody></table><div id="empty-state" class="empty-state" hidden>No findings match this view. Try another filter or search.</div></div>
+            <div class="table-foot"><span id="table-range">Showing 1–8 of 18 findings</span><div><button class="page-button" disabled aria-label="Previous page">←</button><button class="page-button next" id="next-page" aria-label="Next page">→</button></div></div>
+          </section>
+          <footer><span>stale <span class="footer-dot">·</span> a little less cruft, a little more calm.</span><span>Built for the branches you forgot.</span></footer>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <dialog id="report-dialog" aria-labelledby="dialog-title"><div class="dialog-head"><div><span class="dialog-eyebrow">CLEANUP REPORT <span>·</span> OCT 23, 2026</span><h2 id="dialog-title">A little spring cleaning.</h2></div><button class="close-dialog" id="close-report" aria-label="Close report">×</button></div><p class="dialog-intro">18 findings across <strong>northstar / checkout</strong>. Nothing has been changed. Pick what you want to do next.</p><div class="report-score"><span>18</span><div><strong>things to review</strong><small>Potentially 4.2 MB and a little peace of mind.</small></div><span class="report-mark">✳</span></div><div class="report-groups" id="report-groups"></div><div class="dialog-actions"><button class="secondary-button" id="copy-report">Copy report</button><button class="primary-button" id="download-report">Download Markdown <span>↗</span></button></div><p class="dialog-note">stale never deletes anything. Review each suggestion in your repo.</p></dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
